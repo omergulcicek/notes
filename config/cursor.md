@@ -1,3 +1,37 @@
+## Cursor Rules
+
+```bash
+Communicate in Turkish, but write all code in English.
+
+Avoid using the any type in TypeScript. Place all type definitions in the appropriate files under the src/types directory, or create a new file if needed. Types must not be defined inside component files. All type names should have the word Type at the end (e.g., MenuType, UserType).
+
+Hook names should start with use.
+
+File and folder names must use kebab-case, and all naming should be in English. Component names should use PascalCase, except for certain UI components where different conventions may apply.
+
+Functions should follow the Single Responsibility Principle, keeping them short and focused.
+
+Add comments only when absolutely necessary.
+
+Remove unnecessary imports before each commit.
+
+Remove all console.log statements after debugging is complete.
+
+Commit messages should follow the conventional commits format (feat:, fix:, chore:, etc.).
+
+Prefer pastel and soft color tones in the design.
+
+Avoid code duplication by collecting shared logic in the utils directory.
+
+Always handle errors in API calls using try/catch, toast, or similar patterns.
+
+Follow accessibility (a11y) standards, include appropriate aria attributes where necessary, and wrap all images within semantic <figure> elements for proper context and captions.
+
+UI components should be reusable and modular.
+
+Do not use inline styles; use Tailwind CSS exclusively for styling.
+```
+
 ## Cursor settings.json
 
 ```json
