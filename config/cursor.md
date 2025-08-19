@@ -1,35 +1,49 @@
 ## Cursor Rules
 
 ```bash
-Communicate in Turkish, but write all code in English.
+## General Rules
+- Communicate in Turkish, but write all code in English.
+- Add comments only when absolutely necessary.
+- Remove unnecessary imports before each commit.
+- Remove all console.log statements after debugging is complete.
+- Commit messages must be written in English and must follow the conventional commits format (feat:, fix:, refactor:, etc.).
 
-Avoid using the any type in TypeScript. Place all type definitions in the appropriate files under the src/types directory, or create a new file if needed. Types must not be defined inside component files. All type names should have the word Type at the end (e.g., MenuType, UserType).
+## TypeScript Rules
+- Avoid using the any type in TypeScript.
+- Place all type definitions in the src/types directory, or create a new file if needed.
+- Types must not be defined inside component files.
+- Prefer using interface for object shapes, and type for unions or advanced type compositions.
+- All type names must end with the word Type (e.g., MenuType, UserType).
 
-Hook names should start with use.
+## Functions & Hooks
+- Hook names must start with use.
+- Functions should follow the Single Responsibility Principle, keeping them short and focused.
+- Inside components, always declare hooks and contexts first, then variables, and finally state definitions.
 
-File and folder names must use kebab-case, and all naming should be in English. Component names should use PascalCase, except for certain UI components where different conventions may apply.
+## Naming Conventions
+- File and folder names must use kebab-case, and all naming should be in English.
+- Component names must use PascalCase, except for certain UI components where different conventions may apply.
+- Variable declarations and file names must use kebab-case.
 
-Functions should follow the Single Responsibility Principle, keeping them short and focused.
+## Components & Structure
+- Every subfolder and file inside the components directory must contain an index.ts file (e.g., components/ui/index.ts, components/widgets/index.ts).
+- Components inside the components/widgets directory must be named using PascalCase (e.g., components/widgets/User/User.tsx).
+- Each component folder must contain an index.ts file exporting the component (e.g., export * from "./User";).
+- UI components must be reusable and modular.
+- Prop and variable naming must be intent-driven (e.g., onSubmit, isLoading, variant).
 
-Add comments only when absolutely necessary.
+## Styling & Design
+- Do not use inline styles; use Tailwind CSS exclusively for styling.
+- Prefer pastel and soft color tones in the design.
 
-Remove unnecessary imports before each commit.
+## Error Handling & Utilities
+- Always handle errors in API calls using try/catch, toast, or similar patterns.
+- Avoid code duplication by collecting shared logic in the utils directory.
 
-Remove all console.log statements after debugging is complete.
-
-Commit messages should follow the conventional commits format (feat:, fix:, chore:, etc.).
-
-Prefer pastel and soft color tones in the design.
-
-Avoid code duplication by collecting shared logic in the utils directory.
-
-Always handle errors in API calls using try/catch, toast, or similar patterns.
-
-Follow accessibility (a11y) standards, include appropriate aria attributes where necessary, and wrap all images within semantic <figure> elements for proper context and captions.
-
-UI components should be reusable and modular.
-
-Do not use inline styles; use Tailwind CSS exclusively for styling.
+## Accessibility (a11y)
+- Follow accessibility (a11y) standards.
+- Include appropriate aria attributes where necessary.
+- Wrap all images within semantic <figure> elements for proper context and captions.
 ```
 
 ## Cursor settings.json
