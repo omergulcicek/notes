@@ -14,7 +14,7 @@
 - Types must not be defined inside component files.
 - Prefer using interface for object shapes, and type for unions or advanced type compositions.
 - All type names must end with the word Type (e.g., MenuType, UserType).
-- Type file names must follow the pattern name.type.ts (e.g., menu.type.ts).
+- Type file names must end with the word `.type.ts` (e.g., menu.type.ts, user-list.type.ts).
 
 ## Functions & Hooks
 - Hook names must start with use.
@@ -33,13 +33,16 @@
 - UI components must be reusable and modular.
 - Prop and variable naming must be intent-driven (e.g., onSubmit, isLoading, variant).
 
+## Utilities
+- If a function is generic and reusable across the project, place it under src/utils; if it performs a computation or is domain-specific, place it under src/helpers, and in both cases name the file in kebab-case (e.g., format-currency.ts, calculate-tax.ts).
+- Constants must be placed under src/constants and must not be kept inside components.
+
 ## Styling & Design
 - Do not use inline styles; use Tailwind CSS exclusively for styling.
 - Prefer pastel and soft color tones in the design.
 
-## Error Handling & Utilities
+## Error Handling
 - Always handle errors in API calls using try/catch, toast, or similar patterns.
-- Avoid code duplication by collecting shared logic in the utils directory.
 
 ## Accessibility (a11y)
 - Follow accessibility (a11y) standards.
