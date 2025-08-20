@@ -14,6 +14,7 @@
 - Types must not be defined inside component files.
 - Prefer using interface for object shapes, and type for unions or advanced type compositions.
 - All type names must end with the word Type (e.g., MenuType, UserType).
+- Type file names must follow the pattern name.type.ts (e.g., menu.type.ts).
 
 ## Functions & Hooks
 - Hook names must start with use.
