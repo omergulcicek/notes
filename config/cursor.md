@@ -7,6 +7,7 @@
 - Remove unnecessary imports before each commit.
 - Remove all console.log statements after debugging is complete.
 - Commit messages must be written in English and must follow the conventional commits format (feat:, fix:, refactor:, etc.).
+- Always add clear JSDoc comments for helper and utility functions, including a short description, @param tags for all parameters, and @returns if applicable, without redundant type annotations or extra sections.
 
 ## TypeScript Rules
 - Avoid using the any type in TypeScript.
