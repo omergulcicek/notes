@@ -6,7 +6,7 @@
 - Add comments only when absolutely necessary.
 - Remove unnecessary imports before each commit.
 - Remove all console.log statements after debugging is complete.
-- Commit messages must be written in English and must follow the Conventional Commits specification (feat:, fix:, refactor:, etc.), using the format <type>: <issue-number> <description>, e.g., fix: X-100 correct login validation.
+- Commit messages must be written in English and must follow the Conventional Commits specification (feat:, fix:, refactor:, etc.), using the format <type>: <branch-number> <description>, where <branch-number> is automatically taken from the current branch name (e.g., fix: X-100 correct login validation).
 - Always add clear JSDoc comments for helper and utility functions, including a short description, @param tags for all parameters, and @returns if applicable, without redundant type annotations or extra sections.
 
 ## TypeScript Rules
