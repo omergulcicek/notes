@@ -1,54 +1,104 @@
 ## Cursor Rules
 
 ```bash
-## General Rules
-- Communicate in Turkish, but write all code in English.
-- Add comments only when absolutely necessary.
-- Remove unnecessary imports before each commit.
-- Remove all console.log statements after debugging is complete.
-- Commit messages must be written in English and must follow the Conventional Commits specification (feat:, fix:, refactor:, etc.), using the format <type>: <branch-number> <description>, where <branch-number> is automatically taken from the current branch name (e.g., fix: X-100 correct login validation).
-- Always add clear JSDoc comments for helper and utility functions, including a short description, @param tags for all parameters, and @returns if applicable, without redundant type annotations or extra sections.
+## Cursor Rules for Next.js Projects
 
-## TypeScript Rules
-- Avoid using the any type in TypeScript.
-- Place all type definitions in the src/types directory, or create a new file if needed.
-- Types must not be defined inside component files.
-- Prefer using interface for object shapes, and type for unions or advanced type compositions.
-- All type names must end with the word Type (e.g., MenuType, UserType).
-- Type file names must end with the word `.type.ts` (e.g., menu.type.ts, user-list.type.ts).
+## General
+- Communicate in Turkish, but write all code in English.
+- Remove unnecessary imports and console.log statements before commits.
+- Commit messages must follow the Conventional Commits format (feat:, fix:, refactor:, etc.).
+- ESLint and Prettier rules must be fully enforced.
+- Prettier settings: singleQuote: false, trailingComma: none, printWidth: 100, import ordering and separation enabled.
+
+## TypeScript
+- The any type must not be used.
+- All type definitions must be located under src/types.
+- Type files must be written in kebab-case and end with .type.ts.
+- Type names must end with the suffix Type (e.g., UserType, FormType).
+- Use interface for object shapes, and type for unions or advanced type compositions.
+
+## Environment Variables
+- Environment variables must be managed with @t3-oss/env-nextjs.
+- The src/env.ts file must be the single source of truth across the project.
+- Environment variables must be validated with Zod and used with the NEXT_PUBLIC_ prefix.
 
 ## Functions & Hooks
-- Hook names must start with use.
-- Functions should follow the Single Responsibility Principle, keeping them short and focused.
-- Inside components, always declare hooks and contexts first, then variables, and finally state definitions.
+- Custom hooks must always start with use (e.g., useUsers).
+- Custom hook files must live under src/hooks and be named in camelCase (e.g., useUsers.ts).
+- Hook function names must be written in camelCase.
+- Functions must have a single responsibility, kept simple and focused.
 
-## Naming Conventions
-- File and folder names must use kebab-case, and all naming should be in English.
-- Component names must use PascalCase, except for certain UI components where different conventions may apply.
-- Variable declarations and file names must use kebab-case.
+## State Management
+- Use Zustand for global state management.
+- Store files must live under src/stores, use kebab-case naming, and end with .store.ts (e.g., counter.store.ts).
+- Store hooks must be named in the useXStore form (e.g., useCounterStore).
+
+## Data Fetching
+- HTTP requests must be made with Axios.
+- Axios calls must be made through the get, post, put, del helpers in src/lib/api.ts.
+- Use TanStack Query hooks (useQuery, useMutation) for data operations across the project.
+- Handle errors with try/catch and user feedback mechanisms such as toasts.
 
 ## Components & Structure
-- Every subfolder and file inside the components directory must contain an index.ts file (e.g., components/ui/index.ts, components/widgets/index.ts).
-- Components inside the components/widgets directory must be named using PascalCase (e.g., components/widgets/User/User.tsx).
-- Each component folder must contain an index.ts file exporting the component (e.g., export * from "./User";).
-- UI components must be reusable and modular.
-- Prop and variable naming must be intent-driven (e.g., onSubmit, isLoading, variant).
+- All file and folder names must be kebab-case (e.g., locale-switcher, query-client.ts).
+- Component files (widgets, layouts) must be PascalCase (e.g., UserList.tsx).
+- UI components must be kebab-case (e.g., button.tsx).
+- Every component folder must include an index.ts file exporting the component.
+- Each subfolder under components must export its submodules via an index.ts file.
+- In components/widgets, folder names must be kebab-case and component files inside must be PascalCase.
+- The widgets directory must also have an index.ts file that re-exports all widgets.
+- Prop and variable names must be intent-driven (e.g., onSubmit, isLoading, variant).
+- Shadcn/UI components under components/ui must be kept as-is; do not modify them.
 
-## Utilities
-- If a function is generic and reusable across the project, place it under src/utils; if it performs a computation or is domain-specific, place it under src/helpers, and in both cases name the file in kebab-case (e.g., format-currency.ts, calculate-tax.ts).
-- Constants must be placed under src/constants and must not be kept inside components.
+## Naming Conventions
+- Folders and base files must be named in kebab-case.
+- Components (widgets, layouts, pages) must be named in PascalCase.
+- UI components must be named in kebab-case.
+- Helper and util files must be named in kebab-case (e.g., format-currency.ts).
+- Hook files must be kebab-case and start with use- (e.g., use-users.ts).
+- Hook function names must be camelCase and start with use (e.g., useUsers).
+- Data files must be kebab-case and end with .data.ts (e.g., user.data.ts).
+- Store files must be kebab-case and end with .store.ts (e.g., counter.store.ts).
+- Icon components must be PascalCase and end with Icon (e.g., ReactIcon).
+- Type and interface names must be PascalCase and end with Type (e.g., UserType).
+- Type files must be kebab-case and end with .type.ts (e.g., user.type.ts).
+- Constants must be written in SNAKE_CASE (e.g., DEFAULT_LOCALE).
+
+## Utilities, Helpers & Constants
+- Reusable functions must be kept under src/utils.
+- Domain-specific or computation-focused functions must be under src/helpers.
+- Constants must be defined under src/constants and must not be kept inside components.
+- Static or mock data must be placed under src/data, and variable names must end with Data (e.g., userData, stackData).
 
 ## Styling & Design
-- Do not use inline styles; use Tailwind CSS exclusively for styling.
-- Prefer pastel and soft color tones in the design.
-
-## Error Handling
-- Always handle errors in API calls using try/catch, toast, or similar patterns.
+- Tailwind CSS must be used exclusively.
+- Inline styles are forbidden.
+- Prefer soft and pastel tones in the design.
+- Layout, spacing, and alignment must be handled with Tailwind utility classes.
 
 ## Accessibility (a11y)
-- Follow accessibility (a11y) standards.
-- Include appropriate aria attributes where necessary.
-- Wrap all images within semantic <figure> elements for proper context and captions.
+- All components must comply with accessibility standards.
+- Use appropriate aria attributes where necessary.
+- Wrap meaningful images with semantic <figure> elements for proper context and captions.
+
+## Internationalization (i18n)
+- No user-facing text should be written directly inside components.
+- All texts must come from locale files under src/messages.
+- Translation keys must be descriptive, consistent, and reusable.
+
+## Icons
+- All icons must be sourced from the lucide-react library.
+- Do not mix different icon libraries.
+
+## Project Defaults
+- Use Next.js App Router APIs for cookie operations.
+- On the server, use cookies() (next/headers), middleware, or NextResponse.cookies.set inside route handlers; on the client side, use the cookie helper functions from src/lib/cookie-client.ts.
+- Use next-intl for date, currency, and number formatting (useFormatter, getFormatter).
+- Use @sindresorhus/slugify for slug generation.
+- General-purpose helper hooks may be used from usehooks-ts (e.g., useLocalStorage, useMediaQuery, useDebounceValue).
+
+## Precedence
+- In case of any rule conflicts, repository-specific rules take precedence over global rules.
 ```
 
 ## Cursor settings.json
