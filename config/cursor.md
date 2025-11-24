@@ -139,19 +139,19 @@
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "files.exclude": {
-        "**/.cache": true,
-        "**/.next": true,
-        "**/.parcel-cache": true,
-        "**/build": true,
-        "**/dist": true,
-        "**/node_modules": true
+      "**/.cache": true,
+      "**/.next": true,
+      "**/.parcel-cache": true,
+      "**/build": true,
+      "**/dist": true,
+      "**/node_modules": true
     },
     "git.autofetch": true,
     "github.copilot.enable": {
-        "*": true,
-        "markdown": true,
-        "plaintext": true,
-        "yaml": true
+      "*": true,
+      "markdown": true,
+      "plaintext": true,
+      "yaml": true
     },
     "javascript.updateImportsOnFileMove.enabled": "never",
     "screencastMode.verticalOffset": 0,
@@ -161,6 +161,7 @@
     "terminal.integrated.fontFamily": "'SpaceMono NF'",
     "terminal.integrated.fontSize": 14,
     "typescript.updateImportsOnFileMove.enabled": "always",
+    "typescript.referencesCodeLens.enabled": true,
     "window.zoomLevel": 1,
     "workbench.colorTheme": "Bearded Theme Black & Gold",
     "workbench.editor.decorations.badges": true,
@@ -178,6 +179,7 @@
     "vsicons.dontShowNewVersionMessage": true,
     "diffEditor.ignoreTrimWhitespace": true,
     "git.ignoreRebaseWarning": true,
-    "security.workspace.trust.untrustedFiles": "open"
+    "security.workspace.trust.untrustedFiles": "open",
+    "diffEditor.hideUnchangedRegions.enabled": true
 }
 ```
