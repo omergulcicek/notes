@@ -1,25 +1,13 @@
-# Development Notes
+# Notes
 
-Bu repo kişisel geliştirme notlarımı içeriyor.
+Personal snippets I reuse across projects.
 
-## 📁 Klasör Yapısı
+## Files
 
-### ⚙️ Config
-- [Cursor Setup](config/cursor.md) - Cursor IDE ayarları ve konfigürasyonu
-- [Prettier Config](config/prettier.md) - Kod formatı ayarları ve import sıralaması
+- [`.prettierrc`](.prettierrc) — Prettier config (copy into projects)
+- [`settings.json`](settings.json) — Cursor / VS Code settings
 
-### 🛠️ Frameworks
-- [Next.js](frameworks/next.md) - Next.js framework notları
-- [TypeScript](frameworks/typescript.md) - TypeScript dil notları
+## Quick notes
 
-### 🎨 Styles
-- [CSS](styles/css.md) - CSS notları
-- [Tailwind CSS](styles/tailwind.md) - Tailwind CSS notları
-- [shadcn/ui](styles/shadcn.md) - shadcn/ui component library notları
-
-### 🔧 Troubleshooting
-- [IDE Cache Issues](troubleshooting/ide-cache-issues.md) - IDE cache sorunları ve çözümleri
-
----
-
-*Bu notlar sürekli güncelleniyor.*
+- `-__nextjs_original-stack-frame` — filter this in the Network tab to clear Next.js noise
+- Prompt for markdown-only output: `Cevabı açıklamasız, tek bir :::writing{variant="standard"} bloğu içinde üret.`
